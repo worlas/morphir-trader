@@ -2,8 +2,6 @@ module Morphir.Models.TradeState exposing (..)
 
 
 type TradeState
-    = New
-    | Processing
+    = Processing
     | Settled
-    | PartialFill
-    | DFD
+    | Cancelled

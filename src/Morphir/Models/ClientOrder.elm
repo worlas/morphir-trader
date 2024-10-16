@@ -1,13 +1,20 @@
 module Morphir.Models.ClientOrder exposing (..)
 
-import Models.TradeSide exposing (..)
+import Morphir.Models.Trade exposing (Trade)
+import Morphir.Models.TradeSide exposing (TradeSide)
+
+
+type ClientOrderAction
+    = New
+    | Cancel
 
 
 type alias ClientOrder =
     { id : String
-    , state : String
+    , accountId : Int
     , security : String
     , quantity : Int
-    , accountId : Int
     , side : TradeSide
+    , action : ClientOrderAction
+    , trade : Trade -- to be able to cancel
     }
