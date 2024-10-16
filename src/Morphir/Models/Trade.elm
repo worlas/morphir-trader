@@ -1,7 +1,7 @@
 module Morphir.Models.Trade exposing (..)
 
-import Models.TradeSide exposing (..)
-import Models.TradeState exposing (..)
+import Morphir.Models.TradeSide exposing (..)
+import Morphir.Models.TradeState exposing (..)
 
 
 type alias Trade =
@@ -11,6 +11,6 @@ type alias Trade =
     , side : TradeSide
     , state : TradeState
     , quantity : Int
-    , updated : Date
-    , created : Date
+    , updated : String
+    , created : String
     }

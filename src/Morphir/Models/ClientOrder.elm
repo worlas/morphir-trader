@@ -1,6 +1,6 @@
 module Morphir.Models.ClientOrder exposing (..)
 
-import Model.TradeSide exposing (..)
+import Models.TradeSide exposing (..)
 
 
 type alias ClientOrder =
