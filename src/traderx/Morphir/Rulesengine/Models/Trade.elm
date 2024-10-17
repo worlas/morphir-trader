@@ -1,7 +1,7 @@
-module Morphir.Models.Trade exposing (..)
+module Traderx.Morphir.Rulesengine.Models.Trade exposing (..)
 
-import Morphir.Models.TradeSide exposing (..)
-import Morphir.Models.TradeState exposing (..)
+import Traderx.Morphir.Rulesengine.Models.TradeSide exposing (TradeSide)
+import Traderx.Morphir.Rulesengine.Models.TradeState exposing (TradeState)
 
 
 type alias Trade =

@@ -1,4 +1,4 @@
-module Morphir.Models.Position exposing (..)
+module Traderx.Morphir.Rulesengine.Models.Position exposing (..)
 
 
 type alias Position =
