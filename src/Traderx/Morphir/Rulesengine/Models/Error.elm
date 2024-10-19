@@ -1,4 +1,4 @@
-module Morphir.Models.Error exposing (..)
+module Traderx.Morphir.Rulesengine.Models.Error exposing (..)
 
 
 type alias Error =
