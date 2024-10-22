@@ -2,26 +2,26 @@ module Traderx.Morphir.Rulesengine.Models.Error exposing (..)
 
 
 type alias Error =
-    { id : Int
-    , desc : String
+    { code : Int
+    , msg : String
     }
 
 
-marketClosedError : { code : number, msg : String }
+marketClosedError : Error
 marketClosedError =
     { code = 600, msg = "Market is Closed" }
 
 
-marketDFDError : { code : number, msg : String }
+marketDFDError : Error
 marketDFDError =
     { code = 550, msg = "Market is Done-For-Day" }
 
 
-stockNotFoundError : { code : number, msg : String }
+stockNotFoundError : Error
 stockNotFoundError =
     { code = 404, msg = "Stock Not Found In Market" }
 
 
-lowClientBalanceError : { code : number, msg : String }
+lowClientBalanceError : Error
 lowClientBalanceError =
     { code = 404, msg = "Stock Not Found In Market" }
