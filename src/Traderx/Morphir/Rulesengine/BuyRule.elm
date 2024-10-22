@@ -2,14 +2,8 @@ module Traderx.Morphir.Rulesengine.BuyRule exposing (..)
 
 import Dict
 import Traderx.Morphir.Rulesengine.Models.ClientOrder exposing (AccountType(..), ClientOrder)
-import Traderx.Morphir.Rulesengine.Models.Error exposing (lowClientBalanceError, marketClosedError, marketDFDError, stockNotFoundError)
+import Traderx.Morphir.Rulesengine.Models.Error exposing (Error, lowClientBalanceError, marketClosedError, marketDFDError, stockNotFoundError)
 import Traderx.Morphir.Rulesengine.Models.Market exposing (Market, MarketStatus(..))
-
-
-type alias Error =
-    { code : Int
-    , msg : String
-    }
 
 
 buyStock : ClientOrder -> Market -> Result Error Bool
