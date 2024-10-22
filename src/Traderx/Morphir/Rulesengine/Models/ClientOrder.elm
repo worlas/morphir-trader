@@ -1,20 +1,32 @@
 module Traderx.Morphir.Rulesengine.Models.ClientOrder exposing (..)
 
-import Traderx.Morphir.Rulesengine.Models.Trade exposing (Trade)
+import Traderx.Morphir.Rulesengine.Models.Market exposing (Stock)
 import Traderx.Morphir.Rulesengine.Models.TradeSide exposing (TradeSide)
 
 
-type ClientOrderAction
-    = New
-    | Cancel
+type AccountType
+    = CASH
+    | MARGIN
+    | FIRM_ACCOUNT
+
+
+type alias ClientStock =
+    { stock : Stock
+    , quantity : Int
+    }
+
+
+type alias AccountInfo =
+    { accountType : AccountType
+    , stocks : Maybe (List ClientStock)
+    , cashBalance : Float
+    }
 
 
 type alias ClientOrder =
-    { id : String
-    , accountId : Int
+    { orderId : String
     , security : String
-    , quantity : Int
     , side : TradeSide
-    , action : ClientOrderAction
-    , trade : Maybe Trade -- to be able to cancel
+    , quantity : Int
+    , accountInfo : AccountInfo
     }
