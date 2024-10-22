@@ -26,6 +26,7 @@ buyStock clientOrder market =
                     0.0
 
         -- client buy power
+        clientAvailableBalance : Float
         clientAvailableBalance =
             case clientOrder.accountInfo.accountType of
                 -- For a margin account, the buying power may be higher. Let's assume margin allows 2x leverage

@@ -6,7 +6,7 @@ import Traderx.Morphir.Rulesengine.Models.Trade exposing (Trade)
 
 
 validateRequest : ClientOrder -> Trade -> Result Error ClientOrder
-validateRequest cOrder trade =
+validateRequest cOrder _ =
     Ok cOrder
 
 
