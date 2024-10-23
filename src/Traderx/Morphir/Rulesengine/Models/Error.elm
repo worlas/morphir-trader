@@ -7,6 +7,14 @@ type alias Error =
     }
 
 
+type Errors
+    = MARKET_CLOSED
+    | MARKET_DFD
+    | STOCK_NOT_FOUND
+    | LOW_CLIENT_BALANCE
+    | TRADE_CANCEL_ERROR
+
+
 marketClosedError : Error
 marketClosedError =
     { code = 600, msg = "Market is Closed" }
@@ -24,4 +32,9 @@ stockNotFoundError =
 
 lowClientBalanceError : Error
 lowClientBalanceError =
-    { code = 404, msg = "Stock Not Found In Market" }
+    { code = 404, msg = "InSufficient Client Balance" }
+
+
+tradeStatusCancelError : Error
+tradeStatusCancelError =
+    { code = 402, msg = "Trade State Prohibits Cancellation" }

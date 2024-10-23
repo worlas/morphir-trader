@@ -1,0 +1,134 @@
+[
+    [
+        [
+            [
+                [
+                    "traderx"
+                ]
+            ],
+            [
+                [
+                    "morphir"
+                ],
+                [
+                    "rulesengine"
+                ],
+                [
+                    "buy",
+                    "rule"
+                ]
+            ],
+            [
+                "buy",
+                "stock"
+            ]
+        ],
+        [
+            {
+                "inputs": [
+                    {
+                        "orderId": "DFDF",
+                        "security": "SP100",
+                        "side": [
+                            "bUY"
+                        ],
+                        "quantity": 100,
+                        "accountInfo": {
+                            "accountType": [
+                                "cASH"
+                            ],
+                            "stocks": null,
+                            "cashBalance": 200
+                        }
+                    },
+                    {
+                        "security": "SP10",
+                        "floatingQty": 2000000,
+                        "price": 0.5,
+                        "marketStatus": [
+                            "cLOSED"
+                        ]
+                    }
+                ],
+                "expectedOutput": [
+                    "err",
+                    {
+                        "code": 404,
+                        "msg": "Stock Not Found In Market"
+                    }
+                ],
+                "description": ""
+            },
+            {
+                "inputs": [
+                    {
+                        "orderId": "DFDF",
+                        "security": "SP100",
+                        "side": [
+                            "bUY"
+                        ],
+                        "quantity": 100,
+                        "accountInfo": {
+                            "accountType": [
+                                "cASH"
+                            ],
+                            "stocks": null,
+                            "cashBalance": 200
+                        }
+                    },
+                    {
+                        "security": "SP100",
+                        "floatingQty": 2000000,
+                        "price": 0.5,
+                        "marketStatus": [
+                            "cLOSED"
+                        ]
+                    }
+                ],
+                "expectedOutput": [
+                    "err",
+                    {
+                        "code": 600,
+                        "msg": "Market is Closed"
+                    }
+                ],
+                "description": ""
+            },
+            {
+                "inputs": [
+                    {
+                        "orderId": "DFDF",
+                        "security": "SP100",
+                        "side": [
+                            "bUY"
+                        ],
+                        "quantity": 100,
+                        "accountInfo": {
+                            "accountType": [
+                                "cASH"
+                            ],
+                            "stocks": null,
+                            "cashBalance": 200
+                        }
+                    },
+                    {
+                        "security": "SP100",
+                        "floatingQty": 2000000,
+                        "price": 50,
+                        "marketStatus": [
+                            "oPEN"
+                        ]
+                    }
+                ],
+                "expectedOutput": [
+                    "err",
+                    {
+                        "code": 404,
+                        "msg": "InSufficient Client Balance"
+                    }
+                ],
+                "description": ""
+            }
+        ]
+    ]
+]

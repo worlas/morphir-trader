@@ -1,6 +1,5 @@
 module Traderx.Morphir.Rulesengine.BuyRule exposing (..)
 
-import Dict
 import Traderx.Morphir.Rulesengine.Models.ClientOrder exposing (AccountType(..), ClientOrder)
 import Traderx.Morphir.Rulesengine.Models.Error exposing (Error, lowClientBalanceError, marketClosedError, marketDFDError, stockNotFoundError)
 import Traderx.Morphir.Rulesengine.Models.Market exposing (Market, MarketStatus(..))
@@ -12,12 +11,11 @@ buyStock clientOrder market =
         -- Total cost of the order (stock price * quantity)
         orderCost : Float
         orderCost =
-            case market |> Dict.get clientOrder.security of
-                Just stock ->
-                    stock.price * toFloat clientOrder.quantity
+            if market.security == clientOrder.security then
+                market.price * toFloat clientOrder.quantity
 
-                Nothing ->
-                    0.0
+            else
+                0.0
 
         -- client buy power
         clientAvailableBalance : Float
@@ -30,21 +28,20 @@ buyStock clientOrder market =
                 _ ->
                     clientOrder.accountInfo.cashBalance
     in
-    case market |> Dict.get clientOrder.security of
-        Just markt ->
-            case markt.marketStatus of
-                OPEN ->
-                    if orderCost <= clientAvailableBalance then
-                        Ok True
+    if market.security == clientOrder.security then
+        case market.marketStatus of
+            OPEN ->
+                if orderCost <= clientAvailableBalance then
+                    Ok True
 
-                    else
-                        Err lowClientBalanceError
+                else
+                    Err lowClientBalanceError
 
-                CLOSED ->
-                    Err marketClosedError
+            CLOSED ->
+                Err marketClosedError
 
-                DFD ->
-                    Err marketDFDError
+            DFD ->
+                Err marketDFDError
 
-        Nothing ->
-            Err stockNotFoundError
+    else
+        Err stockNotFoundError

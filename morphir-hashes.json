@@ -1,11 +1,15 @@
 {
-    "src/traderx/Morphir/Rulesengine/Main.elm": "b1ac124c65e50a9c424a13a386aa23e7",
-    "src/traderx/Morphir/Rulesengine/Models/ClientOrder.elm": "99946af0f16c96f408d5dbc4a21792dc",
-    "src/traderx/Morphir/Rulesengine/Models/Error.elm": "4eca286c85ae67fd7d7373373b726c24",
-    "src/traderx/Morphir/Rulesengine/Models/Market.elm": "899021d808f6cf21f6e77f78e3ec330c",
-    "src/traderx/Morphir/Rulesengine/Models/Position.elm": "7e24d57b5572f6b85099256cc0e33341",
-    "src/traderx/Morphir/Rulesengine/Models/Trade.elm": "4533ef4a0132eb02871f2b542f9bc252",
-    "src/traderx/Morphir/Rulesengine/Models/TradeResult.elm": "5c3dba9c865606a8b17a8aa9eb0c694a",
-    "src/traderx/Morphir/Rulesengine/Models/TradeSide.elm": "ed6feada33d83d6e0cbb6f909c466ba5",
-    "src/traderx/Morphir/Rulesengine/Models/TradeState.elm": "ebe940eca5544e1a67d7261bb3950411"
+    "src\\Traderx\\Morphir\\Rulesengine\\BuyRule.elm": "9097bccdaa7983451d56c20db4791517",
+    "src\\Traderx\\Morphir\\Rulesengine\\CancelTradeRule.elm": "aeb6f8d66b0b598a6e541cb4ec4a8ba0",
+    "src\\Traderx\\Morphir\\Rulesengine\\Main.elm": "10a06f9e64c9ee9ea74ec022c983c9b3",
+    "src\\Traderx\\Morphir\\Rulesengine\\Sell.elm": "8b092adee99aebf234edb70c0d9d6733",
+    "src\\Traderx\\Morphir\\Rulesengine\\Validation.elm": "3e77958de95cf2d8149126b9fbedcdea",
+    "src\\Traderx\\Morphir\\Rulesengine\\Models\\ClientOrder.elm": "44795fe12f8498c4f17ad302dff60a5b",
+    "src\\Traderx\\Morphir\\Rulesengine\\Models\\Error.elm": "6923531fbc98e13e0a3e61c412ad2bd1",
+    "src\\Traderx\\Morphir\\Rulesengine\\Models\\Market.elm": "1b1f2a10e748b821046e1b29ccd5634b",
+    "src\\Traderx\\Morphir\\Rulesengine\\Models\\Position.elm": "e40fb977bbef12e5f2833b133d20a3da",
+    "src\\Traderx\\Morphir\\Rulesengine\\Models\\Trade.elm": "6028ead417e7f9524ed19b8fd147c535",
+    "src\\Traderx\\Morphir\\Rulesengine\\Models\\TradeResult.elm": "28bdbc8871b20d79bb5fb7a8bbe5d0af",
+    "src\\Traderx\\Morphir\\Rulesengine\\Models\\TradeSide.elm": "2df1baf7425081ca45d61d073fc805c3",
+    "src\\Traderx\\Morphir\\Rulesengine\\Models\\TradeState.elm": "15bf3f27d60aed43551beed8b903a47b"
 }
