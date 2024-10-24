@@ -13,6 +13,9 @@ type Errors
     | STOCK_NOT_FOUND
     | LOW_CLIENT_BALANCE
     | TRADE_CANCEL_ERROR
+    | EMPTY_CLIENT_STOCK
+    | INVALID_CLIENT_STOCK
+    | INSUFFICIENT_SELL_POWER
 
 
 marketClosedError : Error

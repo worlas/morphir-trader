@@ -6,11 +6,7 @@ import Traderx.Morphir.Rulesengine.Models.Trade exposing (Trade)
 import Traderx.Morphir.Rulesengine.Models.TradeState exposing (TradeState(..))
 
 
-type Approval
-    = True
-
-
-cancelTrade : Trade -> Market -> Result Errors Approval
+cancelTrade : Trade -> Market -> Result Errors Bool
 cancelTrade trade market =
     if market.security == trade.security then
         case trade.state of
