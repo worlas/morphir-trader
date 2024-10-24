@@ -1,47 +1,30 @@
 module Traderx.Morphir.Rulesengine.BuyRule exposing (..)
 
-import Traderx.Morphir.Rulesengine.Models.ClientOrder exposing (AccountType(..), ClientOrder)
-import Traderx.Morphir.Rulesengine.Models.Error exposing (Error, lowClientBalanceError, marketClosedError, marketDFDError, stockNotFoundError)
-import Traderx.Morphir.Rulesengine.Models.Market exposing (Market, MarketStatus(..))
+import Traderx.Morphir.Rulesengine.Models.Error exposing (Errors(..))
+import Traderx.Morphir.Rulesengine.Models.TradeOrder exposing (TradeOrder)
+import Traderx.Morphir.Rulesengine.Models.TradeSide exposing (TradeSide(..))
+import Traderx.Morphir.Rulesengine.Models.TradeState exposing (TradeState(..))
 
 
-buyStock : ClientOrder -> Market -> Result Error Bool
-buyStock clientOrder market =
+buyStock : TradeOrder -> Result (Errors err) Bool
+buyStock tradeOrder =
     let
-        -- Total cost of the order (stock price * quantity)
-        orderCost : Float
-        orderCost =
-            if market.security == clientOrder.security then
-                market.price * toFloat clientOrder.quantity
-
-            else
-                0.0
-
-        -- client buy power
-        clientAvailableBalance : Float
-        clientAvailableBalance =
-            case clientOrder.accountInfo.accountType of
-                -- For a margin account, the buying power may be higher. Let's assume margin allows 2x leverage
-                MARGIN ->
-                    clientOrder.accountInfo.cashBalance * 2
-
-                _ ->
-                    clientOrder.accountInfo.cashBalance
+        validAccountIdLength : Int
+        validAccountIdLength =
+            15
     in
-    if market.security == clientOrder.security then
-        case market.marketStatus of
-            OPEN ->
-                if orderCost <= clientAvailableBalance then
-                    Ok True
+    case tradeOrder.state of
+        New ->
+            case tradeOrder.side of
+                BUY ->
+                    if String.length tradeOrder.accountId == validAccountIdLength then
+                        Ok True
 
-                else
-                    Err lowClientBalanceError
+                    else
+                        Err (INVALID_ACCOUNT { code = 700, msg = "Invalid Account Length" })
 
-            CLOSED ->
-                Err marketClosedError
+                SELL ->
+                    Err (INVALID_TRADE_SIDE { code = 800, msg = "Invalid Trade Side" })
 
-            DFD ->
-                Err marketDFDError
-
-    else
-        Err stockNotFoundError
+        _ ->
+            Err (INVALID_TRADE_STATE { code = 900, msg = "Invalid Trade State" })

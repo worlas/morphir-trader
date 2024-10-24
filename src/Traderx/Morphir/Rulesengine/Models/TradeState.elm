@@ -2,6 +2,7 @@ module Traderx.Morphir.Rulesengine.Models.TradeState exposing (..)
 
 
 type TradeState
-    = Processing
+    = New
+    | Processing
     | Settled
     | Cancelled

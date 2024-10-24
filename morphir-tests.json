@@ -14,118 +14,62 @@
                     "rulesengine"
                 ],
                 [
-                    "buy",
+                    "cancel",
+                    "trade",
                     "rule"
                 ]
             ],
             [
-                "buy",
-                "stock"
+                "cancel",
+                "trade"
             ]
         ],
         [
             {
                 "inputs": [
                     {
-                        "orderId": "DFDF",
-                        "security": "SP100",
+                        "id": "QQQQQ",
+                        "state": [
+                            "processing"
+                        ],
+                        "security": "IBM",
+                        "quantity": 100,
+                        "accountId": "QQQQQQQQQQQQQQQ",
                         "side": [
                             "bUY"
-                        ],
-                        "quantity": 100,
-                        "accountInfo": {
-                            "accountType": [
-                                "cASH"
-                            ],
-                            "stocks": null,
-                            "cashBalance": 200
-                        }
-                    },
-                    {
-                        "security": "SP10",
-                        "floatingQty": 2000000,
-                        "price": 0.5,
-                        "marketStatus": [
-                            "cLOSED"
                         ]
                     }
                 ],
                 "expectedOutput": [
-                    "err",
-                    {
-                        "code": 404,
-                        "msg": "Stock Not Found In Market"
-                    }
+                    "ok",
+                    true
                 ],
                 "description": ""
             },
             {
                 "inputs": [
                     {
-                        "orderId": "DFDF",
-                        "security": "SP100",
+                        "id": "QQQQQ",
+                        "state": [
+                            "settled"
+                        ],
+                        "security": "IBM",
+                        "quantity": 100,
+                        "accountId": "QQQQQQQQQQQQQQQ",
                         "side": [
                             "bUY"
-                        ],
-                        "quantity": 100,
-                        "accountInfo": {
-                            "accountType": [
-                                "cASH"
-                            ],
-                            "stocks": null,
-                            "cashBalance": 200
-                        }
-                    },
-                    {
-                        "security": "SP100",
-                        "floatingQty": 2000000,
-                        "price": 0.5,
-                        "marketStatus": [
-                            "cLOSED"
                         ]
                     }
                 ],
                 "expectedOutput": [
                     "err",
-                    {
-                        "code": 600,
-                        "msg": "Market is Closed"
-                    }
-                ],
-                "description": ""
-            },
-            {
-                "inputs": [
-                    {
-                        "orderId": "DFDF",
-                        "security": "SP100",
-                        "side": [
-                            "bUY"
-                        ],
-                        "quantity": 100,
-                        "accountInfo": {
-                            "accountType": [
-                                "cASH"
-                            ],
-                            "stocks": null,
-                            "cashBalance": 200
+                    [
+                        "cancelTradeError",
+                        {
+                            "code": 600,
+                            "msg": "Trade State must be Processing"
                         }
-                    },
-                    {
-                        "security": "SP100",
-                        "floatingQty": 2000000,
-                        "price": 50,
-                        "marketStatus": [
-                            "oPEN"
-                        ]
-                    }
-                ],
-                "expectedOutput": [
-                    "err",
-                    {
-                        "code": 404,
-                        "msg": "InSufficient Client Balance"
-                    }
+                    ]
                 ],
                 "description": ""
             }
